@@ -1,0 +1,91 @@
+<div class="row">
+    <div class="span8 offset4" id="slogan">
+        <p>A new crowdfunding platform exclusive to film.</p>
+        <a href="http://c303616.r16.cf1.rackcdn.com/why-passerby_600.png" rel="lightbox" title="Why Passerby?">Why Passerby? Find out here<span>&nbsp;</span></a>
+    </div>
+</div>
+<div class="row home">
+	<% @films[0] %>
+    <div class="span4 first">
+		<div class="shadow-container">
+			<div class="black-border">
+				<div class="data-container">
+					<ul class="nomargin">
+						<li class="title"><%= link_to film.title, film_path(film) %></li>
+						<li class="greenlight-<%= film.is_fully_funded_light? %>"></li>
+						<li class="raised"><%= film.total_funded %></li>
+						<li class="goal">raised of <%= film.funding_goal_display %> goal</li>
+						<li class="days"><%= film.days_remaining %></li>
+					</ul>
+					<div class="progress progress-striped active">
+						<div class="bar" style="width: <%= film.percent_funded %>%;"></div>
+					</div>
+
+				</div>
+				<a href="<%= film_path(film) %>" class="thumbnail">	
+				<img src="<%= film.film_poster_url.to_s %>" alt="<%= film.title %>">
+				</a>
+			</div>
+		</div>
+    </div>
+    <% end %>
+
+    <% @films[1] %>
+    <div class="span4 second">
+		<div class="shadow-container left">
+			<div class="black-border">
+				<div class="data-container">
+					<ul class="nomargin">
+						<li class="title"><%= link_to film.title, film_path(film) %></li>
+						<li class="greenlight-<%= film.is_fully_funded_light? %>"></li>
+						<li class="raised"><%= film.total_funded %></li>
+						<li class="goal">raised of <%= film.funding_goal_display %> goal</li>
+						<li class="days"><%= film.days_remaining %></li>
+					</ul>
+					<div class="progress progress-striped active">
+						<div class="bar" style="width: <%= film.percent_funded %>%;"></div>
+					</div>
+
+				</div>
+				<a href="<%= film_path(film) %>" class="thumbnail">	
+				<img src="<%= film.film_poster_url.to_s %>" alt="<%= film.title %>">
+				</a>
+			</div>
+		</div>
+    </div>
+    <% end %>
+
+    <% @films[2] %>
+    <div class="span4 third">
+		<div class="shadow-container right">
+			<div class="black-border">
+				<div class="data-container">
+					<ul class="nomargin">
+						<li class="title"><%= link_to film.title, film_path(film) %></li>
+						<li class="greenlight-<%= film.is_fully_funded_light? %>"></li>
+						<li class="raised"><%= film.total_funded %></li>
+						<li class="goal">raised of <%= film.funding_goal_display %> goal</li>
+						<li class="days"><%= film.days_remaining %></li>
+					</ul>
+					<div class="progress progress-striped active">
+						<div class="bar" style="width: <%= film.percent_funded %>%;"></div>
+					</div>
+
+				</div>
+				<a href="<%= film_path(film) %>" class="thumbnail">	
+				<img src="<%= film.film_poster_url.to_s %>" alt="<%= film.title %>">
+				</a>
+			</div>
+		</div>
+    </div>
+    <% end %>
+</div>
+<div class="modal" id="how-it-works-modal" style="display: none; width: 600px; margin: -250px 0 0 -300px;">
+    <div class="modal-body" style="min-height: 450px;">
+	    <div class="row-fluid" id="howitworks-full">
+		    <div class="span12">
+		    	<img src="http://c303616.r16.cf1.rackcdn.com/why-passerby.png" width="600px" height="" />
+		    </div>
+		</div>
+    </div>
+</div>

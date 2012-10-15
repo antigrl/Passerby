@@ -1,0 +1,34 @@
+<div class="row">
+    <div class="span8 offset4" id="slogan">
+        <p>Browse Films</p>
+    </div>
+</div>
+<% @films.each_slice(2) do |film_slice| %>
+<div class="row-fluid">
+	<% film_slice.each do |film| %>
+    <div class="film-project span6">
+        <div class="span2">
+            <div class="browse-thumbnail-wrap">
+                <div class="thumbnails">
+                    <a href="<%= url_for film_path(film) %>" class="thumbnail">
+                        <img src="<%= film.film_poster_url.to_s %>" alt="<%= film.title %>">
+                    </a>  
+                </div>
+            </div>
+        </div>
+
+        <div class="span3">
+            <ul class="nomargin">
+                <li class="browse-title"><%= link_to film.title, film_path(film) %></li>
+                <li class="days"><%= film.days_remaining %></li>
+            </ul>
+            <div class="progress progress-striped active">
+                <div class="bar" style="width: <%= film.percent_funded %>%;"></div>
+            </div>
+            <!-- Preview text cannot be taller than 6 lines -->
+            <p><%= truncate(film.logline, :length => 115) %> <%= link_to "Read more", film_path(film), :class => ['read_more'] %></p>
+        </div>
+    </div>
+    <% end %>
+</div>
+<% end%>
